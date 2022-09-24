@@ -1,0 +1,27 @@
+JAVA WEB TUTORIAL(Spring 부트로 배우는 자바 웹 개발)
+
+서블릿의 내부 동작
+초기화(Initialize) : 로드한 서블릿의 인스턴스 생성, 리소스 로드 등 초기화 작업 
+서비스(Service) : 클라이언트의 요청에 따라서 호출할 메서드를 결정
+소멸(Destroy) : 서블릿의 언로드
+
+서블릿 클래스 매핑 스타일 기본
+
+메타데이터 상에서 설정
+ <servlet>
+  	<servlet-name>클래스 이름</servlet-name>
+  	<servlet-class>클래스 파일 이름</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>클래스 이름</servlet-name>
+  	<url-pattern>URL 패턴</url-pattern>
+  </servlet-mapping>
+  
+서블릿 클래스에서 자체적으로도 매핑을 할 수 있다
+@WebServlet(
+		name="클래스 이름", urlPatterns={"/패턴1", "/패턴2"},
+		initParams = {@WebInitParam(name = "sitename", value = "jpub")}
+		)
+자체적으로 처음에 입력하는 값을 저장할 수도 있다.(ServletConfig config.getInitParameter(name)으로 값을 전달 받을 수 있다.)
+일단 name-value 형태를 기억해 두기를 바란다.(Servlet에서 데이터를 받는 가장 기본적인 형식이다.)
