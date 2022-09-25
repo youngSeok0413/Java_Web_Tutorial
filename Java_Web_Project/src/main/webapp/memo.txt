@@ -5,7 +5,7 @@ JAVA WEB TUTORIAL(Spring 부트로 배우는 자바 웹 개발)
 서비스(Service) : 클라이언트의 요청에 따라서 호출할 메서드를 결정
 소멸(Destroy) : 서블릿의 언로드
 
-서블릿 클래스 매핑 스타일 기본
+1. 서블릿 클래스 매핑 스타일 기본
 
 메타데이터 상에서 설정
  <servlet>
@@ -25,3 +25,11 @@ JAVA WEB TUTORIAL(Spring 부트로 배우는 자바 웹 개발)
 		)
 자체적으로 처음에 입력하는 값을 저장할 수도 있다.(ServletConfig config.getInitParameter(name)으로 값을 전달 받을 수 있다.)
 일단 name-value 형태를 기억해 두기를 바란다.(Servlet에서 데이터를 받는 가장 기본적인 형식이다.)
+
+2. HTTP 요청과 응답
+HTTP의 요청과 응답은 대표적으로 2개를 들 수 있다.(GET, POST)
+HttpServletRequest : 요청에 대한 정보를 가지고 있음
+HttpServletResponse : 브라우저에서 정보를 표시하기 위해 나타냄
+
+POST와 GET의 차이
+

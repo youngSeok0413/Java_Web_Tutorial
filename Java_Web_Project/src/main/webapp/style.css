@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body{
+	background-color: white;
+	direction : 1tr;
+	font-size : 15px;
+	margin : 0;
+	padding : 0;
+	text-align: center;
+	
+};
+
+.login-class{
+	background-color : red;
+	border : 1px solid blue;
+	border-color: blue;
+};
+
+
+input{
+	text-align: center;
+};
+

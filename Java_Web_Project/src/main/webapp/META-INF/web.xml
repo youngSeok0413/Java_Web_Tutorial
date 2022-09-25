@@ -31,10 +31,45 @@
   	<servlet-name>init</servlet-name>
   	<servlet-class>com.Init</servlet-class>
   </servlet>
-  
   <servlet-mapping>
   	<servlet-name>init</servlet-name>
   	<url-pattern>/init</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>helloGet</servlet-name>
+  	<servlet-class>com.HelloServlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>helloGet</servlet-name>
+  	<url-pattern>/helloget</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>helloPost</servlet-name>
+  	<servlet-class>com.HelloServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>helloPost</servlet-name>
+  	<url-pattern>/hellopost</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>login</servlet-name>
+  	<servlet-class>com.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>login</servlet-name>
+  	<url-pattern>/postsend</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>upload</servlet-name>
+  	<servlet-class>com.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>upload</servlet-name>
+  	<url-pattern>/upload</url-pattern>
   </servlet-mapping>
 
 </web-app>
