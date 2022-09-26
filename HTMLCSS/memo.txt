@@ -1,0 +1,2 @@
+head title에 아이콘을 적용하는 법
+<link href="이미지주소.ico" rel="shortcut icon" type="image/x-icon">
