@@ -71,5 +71,23 @@
   	<servlet-name>upload</servlet-name>
   	<url-pattern>/upload</url-pattern>
   </servlet-mapping>
+  
+  <filter>
+  	<filter-name>FilterEx</filter-name>
+  	<filter-class>com.FilterEx</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>FilterEx</filter-name>
+  	<url-pattern>*.html</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  <servlet-name>cookie</servlet-name>
+  	<servlet-class>com.CookieCreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cookie</servlet-name>
+  	<url-pattern>/newCookie</url-pattern>
+  </servlet-mapping>
 
 </web-app>

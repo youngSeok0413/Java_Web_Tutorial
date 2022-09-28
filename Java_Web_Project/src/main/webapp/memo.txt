@@ -32,4 +32,42 @@ HttpServletRequest : 요청에 대한 정보를 가지고 있음
 HttpServletResponse : 브라우저에서 정보를 표시하기 위해 나타냄
 
 POST와 GET의 차이
+기능의 차이라고 볼 수 있음. POST의 경우 클라이언트에서 서버단으로 Write 하는 경향이 강하여 쿼리 길이의 제한이 없고, 전송에 있어서 노출이 되지않는다는 점에서 
+GET이 길이의 제한이 있고, 명시적이라는 것과 차이가 있다.
+
+여러 형태의 파일을 업로드 할 수 있는 가?
+<form method="post" action="upload" enctype="multipart/form-data">
+당연히 받을 수 있다.
+@MultipartConfig(
+	fileSizeThreshold = 1024*1024*2, 임시로 메모리에 저장할 수 있는 파일의 최대 크기
+	maxFileSize = 1024 * 1024 * 10, 보낼 파일의 최대 크기
+	maxRequestSize = 1024*1024*50, 보낼 파일들의 최대 크기(1개의 파일만이 아닌 여러개의 파일을 보낼 수 있다.)
+	location = "D:/Work/Java_Web_Tutorial/upload"
+)
+
+Part : https://docs.oracle.com/javaee/7/api/javax/servlet/http/Part.html#getHeader-java.lang.String-
+
+
+  				ㅡㅡ-Read----                     ㅡㅡWriteㅡㅡㅡ
+	 		   ㅣ			ㅣ  l				ㅣ          ㅣ
+HTML -> Reques.part() -> .InputStream -> OutputStream -> new File 이런 형태로 구성되어 있다!! stream에 대해서는 알아 둘 것
+=>만약 사용자가 여러가지 파일을 올린다면? 반대로 사용자가 서버의 파일을 다운받는다면?
+
+요청/응답 모델에서 사용자가 전처리 과정이 필요한 경우 Filter를 사용한다.
+FilterChain : 필터 다음으로 연결해줌(원래 갈려고 했던 곳으로!!)
+Init() : 딱 한 번 개시된다!!(아마도 서버가 시작할 때 기준으로 딱 한번!)
+doFilter : 접속할 때마다 지나가는 필터(여러번 들어간다!!(대략적으로))
+doChain이 doFilter가 끝나기 전에 나오더라도 완전히 끝날 때가지는 끝난 게 아니다.(다만 정보는 이미 넘어갔다)
+
+Cookie : 사용자가 사이를 방문했을 때, 사용자의 컴퓨터에 저장되는 정보를 말한다.
+이름 : 각각의 쿠키의 값을 식별하기 위한 키
+값 : 특정 이름으로 쿠키에 지정된 값
+유효 기간 : 쿠키의 유지 시간
+도메인 : 쿠키를 전송할 도메인
+경로 : 쿠키를 전송할 요청 경로
+
+쿠키는 HTTP Header 정보에 포함되어 전달된다.(HTTP 프로토콜은 비연결지향이다 = 한 번 연결이 된 후 끝나면 자동을 끊긴다! => 계속을 연결을 유지하는 데 필요한 비용이 절감된다)
+그럼에도 상태 정보를 필요한 경우도 많이 있기에 이 저장정보 공간의 탄생이 바로 쿠키의 탄생이다!(예를 들어 팝업 띄우기 같이 사용자가 설정한 정보를 기억할 필요가 있다)
+
+
 
