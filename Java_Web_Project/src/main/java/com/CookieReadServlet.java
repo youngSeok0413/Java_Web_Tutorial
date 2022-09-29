@@ -14,24 +14,27 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/newCookie")
-public class CookieCreateServlet extends HttpServlet{
+@WebServlet("/readcookie")
+public class CookieReadServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html");
-		
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("");
 		PrintWriter out = resp.getWriter();
+		Cookie[] cookies = req.getCookies();
+		
 		out.println("<html>");
-		out.println("<head><title>Making Cookie</title></head>");
-		out.println("<body>쿠키 만들기 요청입니다.<br>");
+		out.println("<head><title>Reading Cookie</title></head>");
+		out.println("<body>");
+		if(cookies!=null) {
+			for(Cookie cookie : cookies) {
+				if(cookie.getName().equals("food")) {
+					out.println("cookie::" + cookie.getValue());
+				}
+			}
+		}
 		
-		Cookie cookie = new Cookie("food","chicken");
-		cookie.setMaxAge(3600);
-		resp.addCookie(cookie);
-		
-		out.println("<a href='/Java_Web_Project/readcookie'>read cookie</a>");
 		out.println("</body></html>");
-		
+		//System.out.println("Read a cookie");
 	}
 }

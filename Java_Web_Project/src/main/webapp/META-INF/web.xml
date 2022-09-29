@@ -89,5 +89,32 @@
   	<servlet-name>cookie</servlet-name>
   	<url-pattern>/newCookie</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>rcookie</servlet-name>
+  	<servlet-class>com.CookieReadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>rcookie</servlet-name>
+  	<url-pattern>/readcookie</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>mcookie</servlet-name>
+  	<servlet-class>com.CookieModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>mcookie</servlet-name>
+  	<url-pattern>/modifyCookie</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>dcookie</servlet-name>
+  	<servlet-class>com.CookieDeletServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>dcookie</servlet-name>
+  	<url-pattern>/deleteCookie</url-pattern>
+  </servlet-mapping>
 
 </web-app>
